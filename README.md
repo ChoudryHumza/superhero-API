@@ -6,7 +6,8 @@ Added features:
 2. create your own superhero using characters from the hit sitcom show "The Office".
 3. 700+ superheros including my professor. 
 
-**Every source code file contains an in-depth explination of the file**
+**Every source code file contains an in-depth explination of the file. For the README.md please click this file and switch to "code" mode.**
+
 
 Youtube Video of me doing a quick demo:
 https://www.youtube.com/watch?v=Nlrn2BBRHkI
