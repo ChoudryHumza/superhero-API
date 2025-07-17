@@ -1,4 +1,14 @@
 
+Web-based use of the open-source Superhero API. 
+
+Added features:
+1. search capability
+2. create your own superhero using characters from the hit sitcom show "The Office".
+3. 700+ superheros including my professor. 
+
+**Every source code file contains an in-depth explination of the file**
+
+
 __________________
 layout.html
 
