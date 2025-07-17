@@ -1,0 +1,705 @@
+/* humza choudry section 1 hc3241 */
+
+/* ======================================================================
+   Global Styles
+   ====================================================================== */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+  }
+  
+  /* ======================================================================
+     Navigation Bar & Header
+     ====================================================================== */
+  nav {
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px;
+  }
+  
+  .logo {
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-container input {
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+  }
+  
+  .search-container button {
+    padding: 20px;
+    margin-left: 8px;
+    width: 100px;
+    height: 60px; /* Fixed height for uniformity */
+    border-radius: 10px;
+    background-color: yellow;
+    cursor: pointer;
+  }
+  
+  /* Create Hero button override: slightly wider */
+  #createHeroButton {
+    width: 320px;
+  }
+  
+  /* ======================================================================
+     Homepage & General Content Layout
+     ====================================================================== */
+  
+  /* Subtitle styling for homepage */
+  .subtitle {
+    text-align: center;
+    color: #333;  /* dark gray */
+    font-size: 2rem;
+    margin: 20px 0;
+  }
+  
+  .search-header {
+    font-size: 20px;
+    margin: 20px;
+    text-align: center;
+    color: #444;
+    font-weight: bold;
+  }
+  
+  /* Homepage grid & hero cards */
+  #heroGrid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    margin: 20px auto;
+    padding: 5px;
+  }
+  
+  .hero-card {
+    background: #fff;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    color: inherit;
+    margin: 10px 0;
+  }
+  
+  .hero-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* ======================================================================
+     Details Page
+     ====================================================================== */
+  #heroDetails {
+    background: #fff;
+    padding: 32px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+    border: 1px solid black;
+  }
+  
+  #heroDetails img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .hero-section {
+    margin-top: 16px;
+    text-align: left;
+    padding: 3px;
+  }
+  
+  p {
+    padding: 3px;
+  }
+  
+  /* ======================================================================
+     Edit Button (on Details Page for user-created heroes)
+     ====================================================================== */
+
+/* Edit Page Specific: Button Group with Buttons on Opposite Sides */
+.edit-button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;        /* Make the container span full width of the form */
+  margin-top: 20px;
+}
+
+.edit-button-group button {
+  padding: 15px 25px;  /* Increased padding for a larger button */
+  font-size: 1.1rem;   /* Bigger font size for visibility */
+  background-color: yellow;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;     /* Ensures pointer cursor on hover */
+}
+
+/* Additional rule to ensure the discard button also shows pointer */
+#discardButton {
+  background-color: #ccc; /* if you prefer a different color, adjust here */
+  cursor: pointer;
+}
+/* ======================================================================
+   Edit Button on Details Page
+   ====================================================================== */
+   .edit-button {
+    background-color: yellow;
+    border: none;
+    padding: 15px 30px;  /* Increased padding for a larger button */
+    font-size: 1.2rem;   /* Bigger font size for prominence */
+    cursor: pointer;     /* Pointer on hover */
+    color: black;
+    border-radius: 4px;
+  }
+  
+  
+  /* ======================================================================
+     Form Page Styles (used in Add and Edit pages)
+     ====================================================================== */
+  .form-page {
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .form-page h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-page form {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-page fieldset {
+    border: none;
+    margin-bottom: 15px;
+    padding: 0;
+  }
+  
+  .form-page label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-page input[type="text"],
+  .form-page select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-page button[type="submit"] {
+    padding: 10px 20px;
+    background-color: yellow;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Success message styling for Add page */
+  #successMessage {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 2rem; /* Increased size */
+    color: #155724;
+  }
+  
+  /* ======================================================================
+     Error Message Styling
+     ====================================================================== */
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  /* ======================================================================
+     Edit Page Specific: Button Group & Discard Button
+     ====================================================================== */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .button-group button {
+    padding: 10px 20px;
+    background-color: yellow;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  #discardButton {
+    background-color: #ccc;
+  }
+  
+
+  /*    
+
+Global Styles
+
+Universal Selector *
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+Purpose:
+Resets all default margins and paddings for all HTML elements to 0.
+Sets box-sizing: border-box; so that padding and borders are included within the element's total width and height.
+Why:
+Provides a consistent starting point across different browsers.
+Alternative:
+Not resetting defaults may lead to inconsistent layouts.
+Consequence of Removal:
+Default browser styling might cause unexpected spacing and sizing issues.
+Body Element
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+Purpose:
+Sets a default font family (Arial, falling back to sans-serif) for readability.
+Sets a light gray background color.
+Why:
+Ensures consistent typography and a pleasant background.
+Consequence of Removal:
+The page might use browser-default fonts and colors, leading to inconsistent design.
+Navigation Bar & Header
+
+Navigation Container
+nav {
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 70px;
+}
+background-color: red;
+Sets the background color of the navigation bar to red.
+display: flex;
+Uses Flexbox for layout, making it easier to position child elements.
+justify-content: space-between;
+Distributes space between child elements (logo and search container) so that they are at opposite ends.
+align-items: center;
+Vertically centers the items in the navigation bar.
+padding: 70px;
+Provides generous padding inside the nav for spacing.
+Consequence of Removal:
+Removing Flexbox or padding may cause the elements to stack or be too cramped.
+Logo
+.logo {
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
+}
+Purpose:
+Styles the logo (the text “SuperHero”) displayed in the navigation bar.
+Properties:
+color: black;: Sets the text color to black.
+font-size: 40px;: Makes the logo text large.
+font-weight: bold;: Ensures the text is bold.
+text-decoration: none;: Removes any default underline for links.
+Consequence:
+Removing any property may affect legibility or visual impact.
+Search Container
+.search-container {
+  display: flex;
+  align-items: center;
+}
+Purpose:
+Groups the search input and buttons together.
+Properties:
+display: flex;: Allows child elements to be laid out in a row.
+align-items: center;: Vertically centers the children.
+Consequence:
+Without Flexbox, items might not align horizontally.
+Search Input
+.search-container input {
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+}
+Purpose:
+Styles the search input field.
+Properties:
+padding: 20px;: Adds space inside the input for readability.
+width: 300px;: Fixes the width.
+border-radius: 10px;: Rounds the corners.
+Consequence:
+Removing padding or width can lead to a less user-friendly input.
+Search Container Buttons
+.search-container button {
+  padding: 20px;
+  margin-left: 8px;
+  width: 100px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: yellow;
+  cursor: pointer;
+}
+Purpose:
+Styles all buttons in the search container.
+Properties:
+padding: 20px;: Provides inner space.
+margin-left: 8px;: Adds space between adjacent buttons.
+width: 100px; & height: 60px;: Fixes dimensions for consistency.
+border-radius: 10px;: Rounds the corners.
+background-color: yellow;: Sets a yellow background.
+cursor: pointer;: Changes the cursor on hover to indicate clickability.
+Consequence:
+Without these, buttons might be too small or not visually appealing.
+Create Hero Button Override
+#createHeroButton {
+  width: 320px;
+}
+Purpose:
+Makes the "Create Hero" button slightly wider than the other buttons (which are 100px wide).
+Consequence:
+If removed, the Create Hero button will match the default width, which may not be as prominent.
+Homepage & General Content Layout
+
+Subtitle
+.subtitle {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin: 20px 0;
+}
+Purpose:
+Styles a subtitle message on the homepage (e.g., "All SuperHeroes and Villians data from all Universes! Total: 731*").
+Properties:
+text-align: center;: Centers the text horizontally.
+color: #333;: Sets a dark gray color.
+font-size: 2rem;: Uses a relatively large font size.
+margin: 20px 0;: Adds vertical spacing.
+Consequence:
+Removing these would cause the subtitle to be unstyled and possibly misaligned.
+Search Header
+.search-header {
+  font-size: 20px;
+  margin: 20px;
+  text-align: center;
+  color: #444;
+  font-weight: bold;
+}
+Purpose:
+Styles the header message when search results are displayed.
+Properties:
+Sets font size, margin, center alignment, color, and boldness.
+Consequence:
+Changing these affects the readability and prominence of the search header.
+Hero Grid
+#heroGrid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin: 20px auto;
+  padding: 5px;
+}
+Purpose:
+Arranges hero cards in a responsive grid.
+Properties:
+display: grid;: Uses CSS Grid layout.
+gap: 10px;: Sets spacing between grid items.
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));: Creates as many columns as possible with a minimum width of 250px.
+margin: 20px auto;: Centers the grid and adds vertical spacing.
+padding: 5px;: Adds inner spacing.
+Consequence:
+Removing grid settings could cause the layout to collapse or lose responsiveness.
+Hero Card
+.hero-card {
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  color: inherit;
+  margin: 10px 0;
+}
+Purpose:
+Styles individual hero cards.
+Properties:
+Sets a white background, black border, rounded corners, uses flex layout for content, centers text, removes text decoration, ensures content doesn’t overflow, inherits text color, and sets vertical margins.
+Consequence:
+Removing these might lead to inconsistent card appearances.
+Hero Card Image
+.hero-card img {
+  width: 100%;
+  height: auto;
+}
+Purpose:
+Ensures images within hero cards fill the card width while maintaining aspect ratio.
+Consequence:
+Without this, images might not scale properly.
+Details Page
+
+Hero Details Container
+#heroDetails {
+  background: #fff;
+  padding: 32px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  margin: 20px auto;
+  border: 1px solid black;
+}
+Purpose:
+Styles the container for the hero details page.
+Properties:
+White background, generous padding, rounded corners, a maximum width to limit stretching, centered with auto margins, and a solid border.
+Consequence:
+Removing or modifying these properties would alter the visual separation and clarity of the details page.
+Hero Details Image
+#heroDetails img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+Purpose:
+Styles the main hero image on the details page.
+Properties:
+Limits maximum width, scales responsively, rounds corners, and adds spacing below.
+Consequence:
+Without these, the image might be too large or improperly formatted.
+Hero Section & Paragraphs
+.hero-section {
+  margin-top: 16px;
+  text-align: left;
+  padding: 3px;
+}
+
+p {
+  padding: 3px;
+}
+Purpose:
+Provides consistent spacing and alignment for sections within the details page.
+Consequence:
+Removing these could lead to cramped or misaligned content.
+Edit Button on Details Page
+
+Edit Button
+.edit-button {
+  background-color: yellow;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: black;
+  border-radius: 4px;
+}
+Purpose:
+Styles the Edit button that appears on the details page for user-created heroes.
+Properties:
+background-color: yellow;: Ensures high visibility.
+border: none;: Removes default borders.
+padding: 15px 30px;: Increases size for easier interaction.
+font-size: 1.2rem;: Enlarges the text.
+cursor: pointer;: Indicates interactivity.
+color: black;: Provides contrast.
+border-radius: 4px;: Softens the edges.
+Consequence:
+Altering these properties would affect the button’s prominence and usability.
+Form Page Styles (Used in Add and Edit Pages)
+
+Form Page Container
+.form-page {
+  max-width: 800px;
+  margin: 20px auto;
+}
+Purpose:
+Provides a container for form pages that centers content and restricts the maximum width.
+Consequence:
+Removing this might cause forms to stretch too wide on large screens.
+Form Page Heading
+.form-page h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+Purpose:
+Centers the main heading and adds spacing below it, so it’s visually distinct from the form.
+Consequence:
+Without this, the heading may blend into the form, reducing clarity.
+Form Styling
+.form-page form {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+Purpose:
+Styles the form itself for a clean, card-like appearance.
+Properties:
+Sets a maximum width for readability, centers the form, adds padding, sets a white background, rounds the corners, and adds a subtle shadow.
+Consequence:
+Without these styles, the form might look unstyled or not visually separated from the background.
+Fieldset and Label Styling
+.form-page fieldset {
+  border: none;
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.form-page label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+Purpose:
+Removes default borders from fieldsets and ensures labels are clearly visible.
+Consequence:
+Leaving default fieldset styles might cause unwanted borders; labels might not stand out without proper spacing.
+Input and Select Styling
+.form-page input[type="text"],
+.form-page select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+Purpose:
+Ensures text inputs and dropdowns are uniform in appearance, with adequate padding and clear borders.
+Consequence:
+Removing these rules would lead to default browser styling, which is less consistent and visually appealing.
+Submit Button Styling for Form Page
+.form-page button[type="submit"] {
+  padding: 10px 20px;
+  background-color: yellow;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: block;
+  margin: 0 auto;
+}
+Purpose:
+Styles the submit button so that it is centered and has a clear, clickable appearance.
+Properties:
+Similar properties to the edit button (padding, background, etc.) but tailored for the form.
+Consequence:
+Without these styles, the submit button may not match the overall design.
+Success Message Styling
+#successMessage {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 2rem;
+  color: #155724;
+}
+Purpose:
+Makes the success message (shown after adding a hero) larger and centered.
+Consequence:
+Without this, the success message might be too small or misaligned.
+Error Message Styling
+
+Error Messages
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  display: block;
+}
+Purpose:
+Styles inline error messages so that they are clearly visible in red.
+Properties:
+Sets a red color, smaller font size, negative top margin (to pull it closer to the field), and bottom margin for spacing.
+Consequence:
+Removing these styles could make error messages either too prominent or too hidden.
+Edit Page Specific: Button Group
+
+Edit Button Group
+.edit-button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+Purpose:
+Creates a flex container that spans the full width of the form, placing the submit button on the left and the discard button on the right.
+Properties:
+display: flex;: Enables flexbox layout.
+justify-content: space-between;: Positions child elements at opposite ends.
+width: 100%;: Ensures the container uses the full width available.
+margin-top: 20px;: Adds spacing from the form fields above.
+Consequence:
+Without these properties, the buttons might stack vertically or be misaligned.
+Buttons within Edit Button Group
+.edit-button-group button {
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  background-color: yellow;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+Purpose:
+Styles both the Submit and Discard buttons in the edit form.
+Properties:
+Increases padding and font size to make them larger.
+Sets a yellow background.
+Removes borders and rounds the corners.
+Ensures a pointer cursor on hover.
+Consequence:
+Without these styles, the buttons may not be prominent or could have inconsistent appearance.
+Discard Button Specific
+#discardButton {
+  background-color: #ccc;
+  cursor: pointer;
+}
+Purpose:
+Overrides the background for the Discard button to a light gray, differentiating it from the Submit button.
+Reaffirms that the cursor should be a pointer.
+Consequence:
+Removing these might cause the Discard button to blend in with the Submit button or not indicate clickability.
+
+*/
