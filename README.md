@@ -1,26 +1,5 @@
-# superhero-API
 
-**Web based use of the open source superhero API (over 700+ characters including my professor :) )**
-
-Additional features:
-1. search capability
-2. Create a custom superhero using characters from the hit sitcom show "The Office". My professors loves that show. Many references were made to this show during course. 
-
-**Each file contans an indepth explination of the logic in that particular file (only files in the static folder or .js and server.py. Explinations of template/.html files are below).**
-
-
-
-Website for API: https://superheroapi.com/
-
-"Get all SuperHeroes and Villians data from all universes under a single API.
-For all the superhero data you've needed.
-Powerstats. Biography. Appearance. Work. Connections. Images.
-From both the universe, and more."
-
-
-
-
-
+__________________
 layout.html
 
 <!-- 
