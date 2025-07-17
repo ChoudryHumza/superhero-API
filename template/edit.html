@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Hero{% endblock %}
+
+{% block content %}
+<main class="form-page">
+  <h1>Edit Hero</h1>
+  <form id="editHeroForm" action="/edit/{{ hero_id }}" method="POST">
+    <fieldset>
+      <legend>Biography</legend>
+      <label for="full_name">Full Name:</label>
+      <input type="text" id="full_name" name="full_name" value="{{ form.full_name or '' }}">
+      <span class="error" id="full_name_error">{% if errors.full_name %}{{ errors.full_name }}{% endif %}</span>
+      
+      <label for="alter_egos">Alter Egos:</label>
+      <input type="text" id="alter_egos" name="alter_egos" value="{{ form.alter_egos or '' }}">
+      <span class="error" id="alter_egos_error">{% if errors.alter_egos %}{{ errors.alter_egos }}{% endif %}</span>
+      
+      <label for="aliases">Aliases (comma-separated):</label>
+      <input type="text" id="aliases" name="aliases" value="{{ form.aliases or '' }}">
+      <span class="error" id="aliases_error">{% if errors.aliases %}{{ errors.aliases }}{% endif %}</span>
+    </fieldset>
+
+    <fieldset>
+      <legend>Image</legend>
+      <label for="image_option">Select an image:</label>
+      <select id="image_option" name="image_option">
+        <option value="no_image">No Image</option>
+        <option value="michael_scott">Michael Scott</option>
+        <option value="pam_beesly">Pam Beesly</option>
+        <option value="jim_halpert">Jim Halpert</option>
+        <option value="andy_bernard">Andy Bernard</option>
+        <option value="dwight_schrute">Dwight Schrute</option>
+        <option value="kevin_malone">Kevin Malone</option>
+        <option value="angela_martin">Angela Martin</option>
+        <option value="phyllis_lapin">Phyllis Lapin</option>
+        <option value="todd_packer">Todd Packer</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Power Stats</legend>
+      <label for="intelligence">Intelligence:</label>
+      <input type="text" id="intelligence" name="intelligence" value="{{ form.intelligence or '' }}">
+      <span class="error" id="intelligence_error">{% if errors.intelligence %}{{ errors.intelligence }}{% endif %}</span>
+      
+      <label for="strength">Strength:</label>
+      <input type="text" id="strength" name="strength" value="{{ form.strength or '' }}">
+      <span class="error" id="strength_error">{% if errors.strength %}{{ errors.strength }}{% endif %}</span>
+      
+      <label for="speed">Speed:</label>
+      <input type="text" id="speed" name="speed" value="{{ form.speed or '' }}">
+      <span class="error" id="speed_error">{% if errors.speed %}{{ errors.speed }}{% endif %}</span>
+      
+      <label for="durability">Durability:</label>
+      <input type="text" id="durability" name="durability" value="{{ form.durability or '' }}">
+      <span class="error" id="durability_error">{% if errors.durability %}{{ errors.durability }}{% endif %}</span>
+      
+      <label for="power">Power:</label>
+      <input type="text" id="power" name="power" value="{{ form.power or '' }}">
+      <span class="error" id="power_error">{% if errors.power %}{{ errors.power }}{% endif %}</span>
+      
+      <label for="combat">Combat:</label>
+      <input type="text" id="combat" name="combat" value="{{ form.combat or '' }}">
+      <span class="error" id="combat_error">{% if errors.combat %}{{ errors.combat }}{% endif %}</span>
+    </fieldset>
+
+    <fieldset>
+      <legend>Appearance</legend>
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" name="gender" value="{{ form.gender or '' }}">
+      <span class="error" id="gender_error">{% if errors.gender %}{{ errors.gender }}{% endif %}</span>
+    </fieldset>
+
+    <fieldset>
+      <legend>Work</legend>
+      <label for="occupation">Occupation:</label>
+      <input type="text" id="occupation" name="occupation" value="{{ form.occupation or '' }}">
+      <span class="error" id="occupation_error">{% if errors.occupation %}{{ errors.occupation }}{% endif %}</span>
+    </fieldset>
+
+    <div class="edit-button-group">
+      <button type="submit">Submit</button>
+      <button type="button" id="discardButton" data-hero-id="{{ hero_id }}">Discard Changes</button>
+    </div>
+  </form>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='edit.js') }}"></script>
+{% endblock %}

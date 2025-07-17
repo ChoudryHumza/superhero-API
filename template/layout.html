@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Superhero API{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    {% block style %}{% endblock %}
+  </head>
+  <body>
+    <nav>
+      <a href="{{ url_for('index')}}" class="logo">SuperHeroes</a>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search Heroes...">
+        <button id="searchButton">Search</button>
+        <button id="createHeroButton" onclick="window.location.href='/add'">Create Hero</button>
+        <button id="clearButton" style="display: none;">Clear</button>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
+
+
+
+
+
+
+

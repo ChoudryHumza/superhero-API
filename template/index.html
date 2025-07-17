@@ -1,0 +1,64 @@
+<!--  humza choudry hc3241 section 1-->
+
+<!-- this page is being used for both the search results and the homepage/infinite scroll-->
+
+
+
+
+{% extends "layout.html" %}
+
+{% block title %}Superhero Grid{% endblock %}
+
+{% block content %}
+<main>
+    {% if search is defined and search %}
+        {% if results|length > 0 %}
+            <p class="search-header">Showing {{ results|length }} results for "{{ search }}"</p>
+        {% else %}
+            <p class="search-header">No matches found for "{{ search }}"</p>
+        {% endif %}
+    {% else %}
+        <div class="subtitle">
+            All SuperHeroes and Villians data from all Universes! Total: 731*
+        </div>
+    {% endif %}
+
+    {% if results is defined %}
+    <div id="heroGrid">
+        {% for hero in results %}
+         <a href="/view/{{ hero.id }}" class="hero-card">
+            <img src="{{ hero.image.url }}" alt="{{ hero.name }}">
+            <div class="hero-details">
+                <h2>{{ hero.name }}</h2>
+                <p><strong>Real Name:</strong> {{ hero.biography['full-name'] or 'N/A' }}</p>
+                <p>
+                    <strong>Aliases:</strong>
+                    {% if hero.biography.aliases and hero.biography.aliases|length > 0 %}
+                        {{ hero.biography.aliases|join(', ') }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </p>
+            </div>
+         </a>
+        {% endfor %}
+    </div>
+    {% else %}
+        <div id="heroGrid"></div>
+        <div id="loader" style="display: none;">Loading more heroes...</div>
+    {% endif %}
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
+
+
+
+
+
+<!--
+COMMENTS/NOTES FOR THIS FILE ARE IN READ ME SINCE IT WAS BEING PICKED UP BY BROWSEER AND CAUSING ERRORS DUE TO JINJA2 STUFF IN THE COMMENTS. 
+
+-->
