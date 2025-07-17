@@ -8,6 +8,23 @@ Added features:
 
 **Every source code file contains an in-depth explination of the file**
 
+Youtube Video of me doing a quick demo:
+https://www.youtube.com/watch?v=Nlrn2BBRHkI
+
+
+API Website: 
+https://superheroapi.com/index.html
+
+API Description:
+"Get all SuperHeroes and Villians data from all universes under a single API.
+For all the superhero data you've needed.
+Powerstats. Biography. Appearance. Work. Connections. Images.
+From both the universe, and more."
+
+
+
+
+
 
 __________________
 layout.html
